@@ -1,0 +1,1770 @@
+/* =========================================================
+   COGNITA AI — ASSESSMENT REPORTS
+   Unified Purple Design System
+   Based on LearningPath.css
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.assessment-reports-page {
+  min-height: calc(100vh - 72px);
+
+  position: relative;
+  overflow: hidden;
+
+  padding: 42px 24px 80px;
+
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(112, 68, 210, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 22%,
+      rgba(155, 96, 255, 0.1),
+      transparent 27%
+    ),
+    linear-gradient(
+      180deg,
+      #0d071d 0%,
+      #100820 46%,
+      #0a0615 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BACKGROUND LIGHTING
+========================================================= */
+
+.assessment-reports-page::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.24;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 75%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 75%
+    );
+}
+
+
+.assessment-reports-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  border-radius: 50%;
+
+  right: -190px;
+  top: 620px;
+
+  background: #5e35b8;
+
+  filter: blur(100px);
+
+  opacity: 0.18;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ar-container {
+  width: min(1220px, 100%);
+
+  margin: 0 auto;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ar-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+
+.ar-header > div:first-child {
+  min-width: 0;
+}
+
+
+.ar-header em {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-style: normal;
+
+  color: #bda5ff;
+
+  font-size: 0.67rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+
+.ar-header em i {
+  width: 7px;
+  height: 7px;
+
+  display: inline-block;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #bda5ff;
+
+  box-shadow:
+    0 0 14px
+    rgba(189, 165, 255, 0.55);
+}
+
+
+.ar-header h1 {
+  margin: 9px 0 8px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    2rem,
+    4vw,
+    3rem
+  );
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+}
+
+
+.ar-header p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.86rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.ar-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.ar-primary,
+.ar-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 9px 12px;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+
+  font-size: 0.63rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.ar-primary {
+  border:
+    1px solid
+    rgba(188, 151, 251, 0.12);
+
+  background:
+    linear-gradient(
+      135deg,
+      #8055ca,
+      #5d399d
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 9px 25px
+    rgba(86, 52, 150, 0.28);
+}
+
+
+.ar-primary:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 13px 30px
+    rgba(86, 52, 150, 0.38);
+}
+
+
+.ar-secondary {
+  border:
+    1px solid
+    rgba(190, 158, 255, 0.17);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: #d5c4ff;
+}
+
+
+.ar-secondary:hover {
+  background:
+    rgba(130, 82, 218, 0.14);
+
+  border-color:
+    rgba(194, 163, 255, 0.32);
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+.ar-primary:focus-visible,
+.ar-secondary:focus-visible {
+  outline: 2px solid #bda5ff;
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ASSESSMENT SELECTOR
+========================================================= */
+
+.ar-selector {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 20px;
+
+  margin-bottom: 18px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.075);
+
+  border-radius: 17px;
+
+  background:
+    rgba(28, 17, 54, 0.55);
+
+  box-shadow:
+    0 16px 55px
+    rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+.ar-selector > div:first-child {
+  min-width: 0;
+}
+
+
+.ar-selector label {
+  color: #a98bda;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+
+.ar-selector h2 {
+  margin: 5px 0 0;
+
+  color: #ffffff;
+
+  font-size: 1.08rem;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.ar-select {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 280px;
+
+  padding: 0 12px;
+
+  border:
+    1px solid
+    rgba(190, 157, 255, 0.14);
+
+  border-radius: 11px;
+
+  background:
+    rgba(11, 7, 25, 0.38);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.025);
+}
+
+
+.ar-select svg {
+  flex-shrink: 0;
+
+  color: #bca2ed;
+}
+
+
+.ar-select select {
+  width: 100%;
+
+  padding: 10px 0;
+
+  border: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  color: #f4efff;
+
+  font-family: inherit;
+
+  font-size: 0.72rem;
+
+  cursor: pointer;
+}
+
+
+.ar-select select option {
+  background: #201436;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   HERO REPORT CARD
+========================================================= */
+
+.ar-hero {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 29px 32px;
+
+  margin-bottom: 18px;
+
+  border:
+    1px solid
+    rgba(202, 174, 255, 0.14);
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(167, 139, 250, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      125deg,
+      rgba(77, 43, 130, 0.55),
+      rgba(30, 17, 60, 0.72)
+    );
+
+  box-shadow:
+    0 24px 75px
+    rgba(0, 0, 0, 0.28),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+.ar-hero > div:first-child {
+  min-width: 0;
+}
+
+
+.ar-hero label {
+  color: #c5adff;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+
+.ar-hero h2 {
+  margin: 9px 0 8px;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    1.45rem,
+    3vw,
+    2.15rem
+  );
+
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+}
+
+
+.ar-hero p {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.43);
+
+  font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   SCORE ORB
+========================================================= */
+
+.ar-orb {
+  position: relative;
+
+  width: 126px;
+  height: 126px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    rgba(202, 174, 255, 0.25);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(174, 135, 255, 0.24),
+      rgba(25, 16, 54, 0.84)
+    );
+
+  box-shadow:
+    0 0 35px
+    rgba(117, 67, 187, 0.14),
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.05);
+}
+
+
+.ar-orb strong {
+  color: #ffffff;
+
+  font-size: 1.75rem;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+
+.ar-orb small {
+  margin-top: 2px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 0.65rem;
+}
+
+
+.ar-orb span {
+  margin-top: 7px;
+
+  color: #bda5e7;
+
+  font-size: 0.56rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   STAT GRID
+========================================================= */
+
+.ar-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 44px;
+}
+
+
+/* =========================================================
+   STAT CARD
+========================================================= */
+
+.ar-stat {
+  display: flex;
+
+  align-items: center;
+
+  min-width: 0;
+
+  gap: 13px;
+
+  padding: 15px 17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.075);
+
+  border-radius: 15px;
+
+  background:
+    rgba(28, 17, 54, 0.55);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+.ar-stat-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background:
+    rgba(151, 105, 235, 0.11);
+
+  color: #bca2ed;
+}
+
+
+.ar-stat span {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+
+.ar-stat strong {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+
+  line-height: 1.3;
+}
+
+
+.ar-stat small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: rgba(255, 255, 255, 0.37);
+
+  font-size: 0.63rem;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   TWO COLUMN LAYOUT
+========================================================= */
+
+.ar-two {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.18fr)
+    minmax(0, 0.82fr);
+
+  gap: 15px;
+
+  margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.ar-panel {
+  min-width: 0;
+
+  padding: 21px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.075);
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 19, 55, 0.82),
+      rgba(17, 10, 34, 0.84)
+    );
+
+  box-shadow:
+    0 14px 40px
+    rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+
+.ar-panel:hover {
+  border-color:
+    rgba(190, 153, 255, 0.13);
+
+  box-shadow:
+    0 18px 48px
+    rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================================================
+   PANEL HEADER
+========================================================= */
+
+.ar-panel-head {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 19px;
+}
+
+
+.ar-panel-head > div {
+  min-width: 0;
+}
+
+
+.ar-panel-head label {
+  color: #a98bda;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+
+.ar-panel-head h2 {
+  margin: 5px 0 0;
+
+  color: #ffffff;
+
+  font-size: 1.1rem;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+
+.ar-panel-head > svg {
+  flex-shrink: 0;
+
+  color: #b89bf2;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.ar-skills {
+  display: grid;
+
+  gap: 17px;
+}
+
+
+.ar-skill {
+  min-width: 0;
+}
+
+
+.ar-skill-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+
+.ar-skill-top > div {
+  min-width: 0;
+}
+
+
+.ar-skill-top strong {
+  color: #ffffff;
+
+  font-size: 0.87rem;
+
+  line-height: 1.3;
+}
+
+
+.ar-skill-top small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.36);
+
+  font-size: 0.64rem;
+
+  line-height: 1.4;
+}
+
+
+.ar-skill-top b {
+  flex-shrink: 0;
+
+  color: #cdb8ef;
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   SKILL TRACK
+========================================================= */
+
+.ar-track {
+  width: 100%;
+
+  height: 6px;
+
+  margin-top: 9px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.065);
+}
+
+
+.ar-track i {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6740aa,
+      #a67bea
+    );
+
+  box-shadow:
+    0 0 13px
+    rgba(154, 105, 226, 0.26);
+
+  transition:
+    width 0.55s ease;
+}
+
+
+/* =========================================================
+   SKILL FOOTER
+========================================================= */
+
+.ar-skill-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 6px;
+
+  color: rgba(255, 255, 255, 0.32);
+
+  font-size: 0.59rem;
+
+  line-height: 1.4;
+}
+
+
+.ar-skill-bottom span:first-child {
+  color: #a98ed8;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.ar-highlights {
+  display: grid;
+
+  gap: 10px;
+}
+
+
+.ar-highlights > div {
+  padding: 13px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 13px;
+
+  background:
+    rgba(11, 7, 25, 0.28);
+}
+
+
+.ar-highlights span {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.ar-highlights b {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 0.88rem;
+
+  line-height: 1.35;
+}
+
+
+.ar-highlights p {
+  margin: 7px 0 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 0.69rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   COMPARISON
+========================================================= */
+
+.ar-comparison {
+  margin-bottom: 17px;
+}
+
+
+.ar-compare-list {
+  display: grid;
+
+  gap: 12px;
+}
+
+
+.ar-compare {
+  display: grid;
+
+  grid-template-columns:
+    170px
+    minmax(0, 1fr)
+    42px;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+
+.ar-compare > div:first-child {
+  min-width: 0;
+}
+
+
+.ar-compare b {
+  color: #f8f5ff;
+
+  font-size: 0.75rem;
+
+  line-height: 1.3;
+}
+
+
+.ar-compare small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.61rem;
+}
+
+
+/* =========================================================
+   COMPARISON TRACK
+========================================================= */
+
+.ar-compare-track {
+  position: relative;
+
+  width: 100%;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+
+.ar-compare-track i,
+.ar-compare-track strong {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+}
+
+
+.ar-compare-track i {
+  background: #b9a6df;
+
+  opacity: 0.3;
+}
+
+
+.ar-compare-track strong {
+  background:
+    linear-gradient(
+      90deg,
+      #6740aa,
+      #a67bea
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(154, 105, 226, 0.2);
+}
+
+
+.ar-compare .up {
+  color: #a7d7c0;
+}
+
+
+.ar-compare .down {
+  color: #dba5b8;
+}
+
+
+/* =========================================================
+   TRAINING
+========================================================= */
+
+.ar-training {
+  display: grid;
+
+  gap: 9px;
+}
+
+
+.ar-training > div {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 11px 12px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.055);
+
+  border-radius: 12px;
+
+  background:
+    rgba(11, 7, 25, 0.24);
+}
+
+
+.ar-training > div > div {
+  min-width: 0;
+}
+
+
+.ar-training b {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 0.75rem;
+}
+
+
+.ar-training small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.61rem;
+
+  line-height: 1.4;
+}
+
+
+.ar-training > div > strong {
+  flex-shrink: 0;
+
+  color: #cdb8ef;
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   NEXT STEP
+========================================================= */
+
+.ar-next {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 0.7rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACTION STACK
+========================================================= */
+
+.ar-action-stack {
+  display: grid;
+
+  gap: 8px;
+
+  margin-top: 17px;
+}
+
+
+.ar-action-stack .ar-primary {
+  width: 100%;
+}
+
+
+.ar-full {
+  width: 100%;
+}
+
+
+/* =========================================================
+   MUTED TEXT
+========================================================= */
+
+.ar-muted {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.69rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.ar-footer {
+  padding-top: 2px;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.24);
+
+  font-size: 0.58rem;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING / ERROR STATE
+========================================================= */
+
+.ar-empty {
+  min-height: 430px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(190, 157, 255, 0.12);
+
+  border-radius: 23px;
+
+  background:
+    rgba(25, 15, 49, 0.68);
+
+  box-shadow:
+    0 20px 60px
+    rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+.ar-empty > svg:not(.ar-spin) {
+  color: #c0a3ee;
+}
+
+
+.ar-empty h2 {
+  margin: 17px 0 7px;
+
+  color: #ffffff;
+
+  font-size: 1.3rem;
+
+  line-height: 1.25;
+}
+
+
+.ar-empty p {
+  max-width: 540px;
+
+  margin: 0 0 22px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.77rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOADING SPINNER
+========================================================= */
+
+.ar-spin {
+  color: #c3a8f1;
+
+  animation:
+    ar-spin 1s linear infinite;
+}
+
+
+@keyframes ar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — 1050
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .ar-two {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  }
+
+
+  .ar-compare {
+    grid-template-columns:
+      145px
+      minmax(0, 1fr)
+      42px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 900
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .ar-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .ar-actions {
+    width: 100%;
+  }
+
+
+  .ar-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .ar-two {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 700
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .ar-selector {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .ar-select {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+
+  .ar-hero {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .ar-orb {
+    width: 112px;
+    height: 112px;
+  }
+
+
+  .ar-compare {
+    grid-template-columns:
+      1fr
+      42px;
+
+    row-gap: 7px;
+  }
+
+
+  .ar-compare-track {
+    grid-column: 1 / -1;
+
+    grid-row: 2;
+  }
+
+
+  .ar-compare > b:last-child {
+    grid-column: 2;
+
+    grid-row: 1;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 600
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .assessment-reports-page {
+    padding:
+      28px 14px 55px;
+  }
+
+
+  .ar-header {
+    margin-bottom: 22px;
+  }
+
+
+  .ar-header h1 {
+    font-size: 2rem;
+  }
+
+
+  .ar-header p {
+    font-size: 0.78rem;
+  }
+
+
+  .ar-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .ar-actions button {
+    width: 100%;
+  }
+
+
+  .ar-selector {
+    padding: 16px;
+
+    border-radius: 16px;
+  }
+
+
+  .ar-hero {
+    padding: 23px 19px;
+
+    border-radius: 19px;
+  }
+
+
+  .ar-hero h2 {
+    font-size: 1.55rem;
+  }
+
+
+  .ar-stats {
+    grid-template-columns: 1fr;
+
+    margin-bottom: 35px;
+  }
+
+
+  .ar-stat {
+    padding: 14px 15px;
+  }
+
+
+  .ar-panel {
+    padding: 17px;
+
+    border-radius: 17px;
+  }
+
+
+  .ar-panel-head h2 {
+    font-size: 1rem;
+  }
+
+
+  .ar-skill-top strong {
+    font-size: 0.8rem;
+  }
+
+
+  .ar-skill-bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 2px;
+  }
+
+
+  .ar-empty {
+    min-height: 380px;
+
+    padding: 28px 20px;
+  }
+
+
+  .ar-empty h2 {
+    font-size: 1.15rem;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — 420
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .ar-hero {
+    gap: 22px;
+  }
+
+
+  .ar-orb {
+    width: 105px;
+    height: 105px;
+  }
+
+
+  .ar-orb strong {
+    font-size: 1.55rem;
+  }
+
+
+  .ar-training > div {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
+  .ar-training > div > strong {
+    align-self: flex-start;
+  }
+
+
+  .ar-compare {
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto;
+  }
+
+
+  .ar-compare b {
+    font-size: 0.7rem;
+  }
+
+
+  .ar-compare-track {
+    grid-column: 1 / -1;
+  }
+
+
+  .ar-primary,
+  .ar-secondary {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+  .assessment-reports-page {
+    min-height: auto;
+
+    padding: 0;
+
+    background: #ffffff !important;
+
+    color: #111111 !important;
+  }
+
+
+  .assessment-reports-page::before,
+  .assessment-reports-page::after {
+    display: none !important;
+  }
+
+
+  .ar-actions,
+  .ar-selector,
+  .ar-action-stack {
+    display: none !important;
+  }
+
+
+  .ar-container {
+    width: 100%;
+  }
+
+
+  .ar-header h1,
+  .ar-header p,
+  .ar-panel-head h2,
+  .ar-skill-top strong,
+  .ar-stat strong,
+  .ar-hero h2,
+  .ar-highlights b,
+  .ar-training b {
+    color: #111111 !important;
+  }
+
+
+  .ar-panel,
+  .ar-stat,
+  .ar-hero,
+  .ar-empty {
+    background: #ffffff !important;
+
+    color: #111111 !important;
+
+    border:
+      1px solid
+      #dddddd !important;
+
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+  }
+
+
+  .ar-stat span,
+  .ar-stat small,
+  .ar-header p,
+  .ar-skill-top small,
+  .ar-skill-bottom,
+  .ar-highlights span,
+  .ar-highlights p,
+  .ar-training small,
+  .ar-next,
+  .ar-muted {
+    color: #555555 !important;
+  }
+
+
+  .ar-footer {
+    color: #666666 !important;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ar-primary,
+  .ar-secondary,
+  .ar-panel,
+  .ar-track i {
+    transition: none;
+  }
+
+
+  .ar-spin {
+    animation: none;
+  }
+
+}

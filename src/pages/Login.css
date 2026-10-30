@@ -1,0 +1,997 @@
+/* =========================================================
+   COGNITA AI — AUTHENTICATION DESIGN SYSTEM
+   Login Page
+   ========================================================= */
+
+:root {
+  --auth-primary: #6d4aff;
+  --auth-primary-dark: #5835e8;
+  --auth-primary-soft: #eee9ff;
+
+  --auth-text: #211b35;
+  --auth-heading: #171329;
+  --auth-muted: #756e88;
+
+  --auth-border: #e5e0ef;
+  --auth-input: #fbfaff;
+
+  --auth-success: #15803d;
+  --auth-danger: #dc2626;
+
+  --auth-white: #ffffff;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 42px 24px;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(124, 92, 246, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(99, 102, 241, 0.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f7fc 0%,
+      #f3f0fa 48%,
+      #f8f7fc 100%
+    );
+
+  color: var(--auth-text);
+}
+
+
+/* =========================================================
+   BACKGROUND SHAPES
+   ========================================================= */
+
+.auth-background-shape {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(2px);
+}
+
+.auth-shape-one {
+  width: 420px;
+  height: 420px;
+
+  top: -180px;
+  left: -140px;
+
+  background: rgba(124, 92, 246, 0.07);
+}
+
+.auth-shape-two {
+  width: 360px;
+  height: 360px;
+
+  right: -140px;
+  bottom: -150px;
+
+  background: rgba(99, 102, 241, 0.07);
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.auth-layout {
+  width: min(1080px, 100%);
+
+  display: grid;
+
+  grid-template-columns:
+    0.95fr 1.05fr;
+
+  position: relative;
+
+  z-index: 2;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 30px 80px rgba(45, 35, 80, 0.10),
+    0 10px 30px rgba(45, 35, 80, 0.06);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   LEFT BRAND PANEL
+   ========================================================= */
+
+.auth-brand-panel {
+  min-height: 650px;
+
+  padding: 52px 48px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+
+  overflow: hidden;
+
+  color: white;
+
+  /*
+    Base purple layer.
+    Keeps the Cognita identity visible even
+    when the image is darkened.
+  */
+  background:
+    linear-gradient(
+      145deg,
+      #5640c7 0%,
+      #6249d5 48%,
+      #4934ad 100%
+    );
+}
+
+
+/* =========================================================
+   BRAIN IMAGE
+   ========================================================= */
+
+.auth-brain-image {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  background-image:
+    url('./welcome-brain.jpg');
+
+  background-size: cover;
+
+  background-position: center;
+
+  /*
+    Reduced brightness of the actual image.
+  */
+  filter:
+    brightness(0.48)
+    saturate(0.78)
+    contrast(0.92);
+
+  opacity: 0.68;
+
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   PURPLE IMAGE OVERLAY
+   ========================================================= */
+
+.auth-brain-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  /*
+    This is the main readability layer.
+
+    Dark purple at the bottom/left where
+    the text appears, slightly lighter toward
+    the top/right so the brain remains visible.
+  */
+  background:
+    linear-gradient(
+      145deg,
+      rgba(53, 38, 135, 0.82) 0%,
+      rgba(79, 57, 175, 0.72) 45%,
+      rgba(44, 31, 105, 0.84) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   DECORATIVE GLOW
+   ========================================================= */
+
+.auth-brand-panel::before {
+  content: '';
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -130px;
+  top: -110px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+.auth-brand-panel::after {
+  content: '';
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  left: -100px;
+  bottom: -90px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BRAND BADGE
+   ========================================================= */
+
+.brand-badge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px 14px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.16);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   BRAND CONTENT
+   ========================================================= */
+
+.brand-content {
+  max-width: 450px;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   BRAND ICON
+   ========================================================= */
+
+.brand-icon-large {
+  width: 68px;
+  height: 68px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 30px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 15px 30px rgba(30, 20, 80, 0.16);
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.brand-eyebrow {
+  margin: 0 0 14px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+
+  color:
+    rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================================
+   BRAND HEADING
+   ========================================================= */
+
+.brand-content h2 {
+  margin: 0;
+
+  font-size:
+    clamp(31px, 3vw, 43px);
+
+  line-height: 1.12;
+
+  letter-spacing: -1.4px;
+
+  font-weight: 750;
+
+  text-shadow:
+    0 2px 14px rgba(25, 15, 70, 0.18);
+}
+
+.brand-content h2 span {
+  color: #e9e4ff;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.brand-description {
+  max-width: 420px;
+
+  margin: 22px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.80);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  text-shadow:
+    0 1px 8px rgba(25, 15, 70, 0.15);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.brand-footer {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size: 12px;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+.brand-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #dcd5ff;
+
+  box-shadow:
+    0 0 10px rgba(220, 213, 255, 0.45);
+}
+
+
+/* =========================================================
+   LOGIN CARD
+   ========================================================= */
+
+.auth-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 58px 62px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+}
+
+.login-card {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   MOBILE BRAND
+   ========================================================= */
+
+.auth-mobile-brand {
+  display: none;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.auth-heading {
+  margin-bottom: 30px;
+}
+
+.auth-kicker {
+  margin: 0 0 9px;
+
+  color:
+    var(--auth-primary);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.auth-heading h1 {
+  margin: 0;
+
+  color:
+    var(--auth-heading);
+
+  font-size: 31px;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
+}
+
+.auth-heading > p:last-child {
+  margin: 9px 0 0;
+
+  color:
+    var(--auth-muted);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.auth-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.auth-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.auth-field label {
+  color: #403852;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.auth-label-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.auth-input-wrapper {
+  position: relative;
+}
+
+.auth-input-wrapper input {
+  width: 100%;
+
+  height: 52px;
+
+  box-sizing: border-box;
+
+  padding:
+    0 16px 0 46px;
+
+  border:
+    1px solid var(--auth-border);
+
+  border-radius: 13px;
+
+  outline: none;
+
+  background:
+    var(--auth-input);
+
+  color:
+    var(--auth-heading);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.auth-input-wrapper input::placeholder {
+  color: #a39caf;
+}
+
+.auth-input-wrapper input:hover {
+  border-color: #d5cdea;
+}
+
+.auth-input-wrapper input:focus {
+  background: white;
+
+  border-color:
+    rgba(109, 74, 255, 0.55);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(109, 74, 255, 0.09);
+}
+
+.auth-input-icon {
+  position: absolute;
+
+  left: 16px;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  color: #9388a9;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.auth-inline-link {
+  color:
+    var(--auth-primary);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.auth-inline-link:hover {
+  color:
+    var(--auth-primary-dark);
+
+  text-decoration: underline;
+}
+
+.auth-field-error {
+  margin: 0;
+
+  color:
+    var(--auth-danger);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.auth-primary-button {
+  width: 100%;
+
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 4px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6d4aff,
+      #8064f5
+    );
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px
+    rgba(109, 74, 255, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.auth-primary-button:hover:not(:disabled) {
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 14px 28px
+    rgba(109, 74, 255, 0.27);
+}
+
+.auth-primary-button:active:not(:disabled) {
+  transform:
+    translateY(0);
+}
+
+.auth-primary-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.auth-secondary-button {
+  width: 100%;
+
+  height: 50px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid #ddd6ed;
+
+  border-radius: 13px;
+
+  background: white;
+
+  color: #51466a;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.auth-secondary-button:hover {
+  background: #f8f6fd;
+
+  border-color: #cfc4e7;
+
+  color:
+    var(--auth-primary);
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.auth-divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 25px 0 14px;
+
+  color: #a19aaf;
+
+  font-size: 11px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+
+  height: 1px;
+
+  flex: 1;
+
+  background: #ece8f2;
+}
+
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.auth-alert {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin-bottom: 20px;
+
+  padding: 12px 14px;
+
+  border-radius: 11px;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.auth-alert-error {
+  border:
+    1px solid #fecaca;
+
+  background:
+    #fff5f5;
+
+  color:
+    #b91c1c;
+}
+
+
+/* =========================================================
+   LEGAL
+   ========================================================= */
+
+.auth-legal {
+  max-width: 390px;
+
+  margin: 18px auto 0;
+
+  text-align: center;
+
+  color: #aaa4b3;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE AUTH ICON
+   ========================================================= */
+
+.auth-icon {
+  width: 54px;
+  height: 54px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin:
+    0 auto 18px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6d4aff,
+      #8a72f5
+    );
+
+  color: white;
+
+  box-shadow:
+    0 10px 25px
+    rgba(109, 74, 255, 0.20);
+}
+
+
+/* =========================================================
+   SPINNER
+   ========================================================= */
+
+.auth-spinner {
+  width: 17px;
+
+  height: 17px;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.35);
+
+  border-top-color:
+    white;
+
+  border-radius: 50%;
+
+  animation:
+    auth-spin 0.75s linear infinite;
+}
+
+@keyframes auth-spin {
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .auth-layout {
+    grid-template-columns: 1fr;
+
+    max-width: 520px;
+  }
+
+  .auth-brand-panel {
+    display: none;
+  }
+
+  .auth-mobile-brand {
+    display: block;
+  }
+
+  .auth-card {
+    padding:
+      46px 42px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .auth-page {
+    padding:
+      22px 14px;
+  }
+
+  .auth-card {
+    padding:
+      34px 23px;
+
+    border-radius: 23px;
+  }
+
+  .auth-layout {
+    border-radius: 23px;
+  }
+
+  .auth-heading h1 {
+    font-size: 27px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .auth-card {
+    padding:
+      30px 18px;
+  }
+
+  .auth-heading h1 {
+    font-size: 25px;
+  }
+
+  .auth-label-row {
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+}

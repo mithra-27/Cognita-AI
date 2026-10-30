@@ -1,0 +1,70 @@
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+
+# Secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Node dependencies and builds
+node_modules/
+dist/
+dist-ssr/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+
+# ChromaDB and vector databases
+chroma_db/
+chroma_db_old*/
+**/chroma_db/
+**/chroma_db_old*/
+
+# Experiment outputs and temporary backups
+flashlite_experiment/
+*.backup
+*.partial
+*.pre_flashlite_backup.*
+cognita_*.zip
+
+# Local IDE and OS files
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local database and log files
+*.sqlite
+*.sqlite3
+*.db
+*.log
+
+# Workspace-specific files
+*.code-workspace

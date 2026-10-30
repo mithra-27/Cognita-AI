@@ -1,0 +1,138 @@
+/* =========================================================
+   COGNITA AI - REGISTER
+   ========================================================= */
+
+.register-layout {
+  max-width: 1120px;
+}
+
+.register-card {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.register-brand-panel {
+  min-height: 700px;
+}
+
+.brand-feature-list {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.brand-feature-list > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-feature-list span {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.brand-feature-list p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   PASSWORD TOGGLE
+   ========================================================= */
+
+.password-toggle {
+  position: absolute;
+
+  right: 9px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #9388a9;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.password-toggle:hover {
+  background: #f0ecfa;
+  color: #6d4aff;
+}
+
+.password-toggle:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Give password inputs space for toggle */
+.register-card
+.auth-input-wrapper input[type='password'],
+.register-card
+.auth-input-wrapper input[type='text'] {
+  padding-right: 48px;
+}
+
+/* =========================================================
+   FORM HINT
+   ========================================================= */
+
+.form-hint {
+  color: #958da3;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .register-brand-panel {
+    display: none;
+  }
+
+  .register-card {
+    padding: 42px;
+  }
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    padding: 32px 22px;
+  }
+}

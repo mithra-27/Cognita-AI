@@ -1,0 +1,1478 @@
+/* ============================================================
+   COGNITA AI — ADAPTIVE TRAINING
+   UI REDESIGN — FUNCTIONALITY PRESERVED
+   Purple visual system • Glassmorphism • Cognitive focus
+   ============================================================ */
+
+.training-page {
+  position: relative;
+  min-height: calc(100vh - 90px);
+  padding: 34px clamp(16px, 4vw, 64px) 34px;
+  color: #f7f3ff;
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(circle at 8% 0%, rgba(155, 104, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(104, 61, 220, 0.17), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(81, 42, 160, 0.12), transparent 35%),
+    linear-gradient(145deg, #120822 0%, #0d061a 48%, #08040f 100%);
+}
+
+.training-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(174, 143, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(174, 143, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.training-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 460px;
+  height: 460px;
+  right: -220px;
+  top: 150px;
+  border-radius: 50%;
+  background: rgba(130, 77, 255, 0.13);
+  filter: blur(105px);
+  pointer-events: none;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.training-header {
+  position: relative;
+  z-index: 1;
+  max-width: 1480px;
+  margin: 0 auto 25px;
+  padding: 4px 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.training-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+  color: #b89dff;
+  font-size: 0.70rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.training-eyebrow svg {
+  filter: drop-shadow(0 0 10px rgba(166, 124, 255, 0.75));
+}
+
+.training-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 850;
+  background: linear-gradient(105deg, #fff 5%, #e4d8ff 48%, #a987ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.training-header p {
+  max-width: 700px;
+  margin: 12px 0 0;
+  color: #a99dbd;
+  font-size: 0.90rem;
+  line-height: 1.7;
+}
+
+.training-header-icon {
+  width: 70px;
+  height: 70px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  border: 1px solid rgba(182, 150, 255, 0.28);
+  background:
+    linear-gradient(145deg, rgba(145, 96, 255, 0.24), rgba(60, 31, 126, 0.11));
+  color: #cbb8ff;
+  box-shadow:
+    0 18px 45px rgba(73, 37, 153, 0.20),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.training-header-icon svg {
+  filter: drop-shadow(0 0 13px rgba(164, 125, 255, 0.7));
+}
+
+/* ============================================================
+   ERROR
+   ============================================================ */
+
+.training-error {
+  position: relative;
+  z-index: 2;
+  max-width: 1480px;
+  margin: 0 auto 18px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 14px;
+  color: #ffb8c9;
+  border: 1px solid rgba(255, 92, 129, 0.22);
+  background: rgba(116, 22, 52, 0.18);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+}
+
+/* ============================================================
+   RECOMMENDATION — "NEXT BEST MOVE"
+   ============================================================ */
+
+.recommended-training-card {
+  position: relative;
+  z-index: 1;
+  max-width: 1480px;
+  margin: 0 auto 22px;
+  padding: 20px 22px;
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+
+  border: 1px solid rgba(173, 139, 255, 0.27);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(120deg, rgba(113, 70, 214, 0.20), rgba(32, 17, 59, 0.72)),
+    rgba(16, 8, 30, 0.68);
+
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.23),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  overflow: hidden;
+}
+
+.recommended-training-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #b08bff, #6e42df);
+  box-shadow: 0 0 22px rgba(139, 92, 246, 0.8);
+}
+
+.recommended-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  color: #d0bdff;
+  border: 1px solid rgba(188, 158, 255, 0.35);
+  background: rgba(132, 82, 232, 0.16);
+  box-shadow: 0 0 28px rgba(119, 73, 220, 0.18);
+}
+
+.recommended-label {
+  margin-bottom: 5px;
+  color: #a98eea;
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+}
+
+.recommended-content h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.30rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.recommended-content p {
+  max-width: 760px;
+  margin: 6px 0 10px;
+  color: #a89db8;
+  font-size: 0.80rem;
+  line-height: 1.55;
+}
+
+.recommended-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  color: #82768f;
+  border: 1px solid rgba(255,255,255,0.055);
+  background: rgba(0,0,0,0.20);
+  font-size: 0.67rem;
+}
+
+.recommended-score strong {
+  color: #c7b2ff;
+  font-size: 0.82rem;
+}
+
+.recommended-action {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.primary-training-button,
+.secondary-training-button {
+  min-height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease;
+}
+
+.primary-training-button {
+  color: #fff;
+  border: 1px solid rgba(204, 181, 255, 0.40);
+  background: linear-gradient(135deg, #885df2, #6033c5);
+  box-shadow:
+    0 10px 28px rgba(102, 54, 204, 0.30),
+    inset 0 1px 0 rgba(255,255,255,0.13);
+}
+
+.primary-training-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 34px rgba(102, 54, 204, 0.42),
+    0 0 24px rgba(139, 92, 246, 0.12);
+}
+
+.secondary-training-button {
+  color: #b9aec9;
+  border: 1px solid rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.035);
+}
+
+.secondary-training-button:hover:not(:disabled) {
+  color: #fff;
+  border-color: rgba(164, 126, 255, 0.30);
+  background: rgba(129, 82, 229, 0.09);
+}
+
+.primary-training-button:disabled,
+.secondary-training-button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+
+.training-layout {
+  position: relative;
+  z-index: 1;
+  max-width: 1480px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 305px minmax(0, 1fr);
+  gap: 18px;
+}
+
+/* ============================================================
+   SKILL NAVIGATION
+   ============================================================ */
+
+.training-sidebar {
+  position: relative;
+  padding: 17px;
+  border-radius: 21px;
+  border: 1px solid rgba(255,255,255,0.075);
+  background:
+    linear-gradient(160deg, rgba(29,17,50,0.78), rgba(13,7,24,0.88));
+  box-shadow:
+    0 22px 55px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.045);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.sidebar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 3px 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar-heading > svg {
+  color: #9c7aee;
+  filter: drop-shadow(0 0 8px rgba(139,92,246,0.45));
+}
+
+.sidebar-title {
+  display: block;
+  color: #f2ecfa;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.sidebar-subtitle {
+  display: block;
+  margin-top: 3px;
+  color: #756a82;
+  font-size: 0.65rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 13px;
+}
+
+.skill-card {
+  position: relative;
+  width: 100%;
+  padding: 11px 11px 10px;
+  border-radius: 13px;
+  text-align: left;
+  color: inherit;
+  border: 1px solid rgba(255,255,255,0.055);
+  background: rgba(255,255,255,0.023);
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.skill-card:hover:not(:disabled) {
+  transform: translateX(3px);
+  border-color: rgba(151,112,255,0.24);
+  background: rgba(118,79,218,0.075);
+}
+
+.skill-card.active {
+  border-color: rgba(163,126,255,0.40);
+  background: linear-gradient(135deg, rgba(123,78,231,0.18), rgba(72,40,139,0.08));
+  box-shadow: 0 9px 25px rgba(72,37,148,0.17);
+}
+
+.skill-card.recommended {
+  border-left: 3px solid #9975f4;
+}
+
+.skill-card:disabled {
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.skill-card-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.skill-number {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #9184a9;
+  background: rgba(255,255,255,0.055);
+  font-size: 0.67rem;
+  font-weight: 850;
+}
+
+.skill-card.active .skill-number {
+  color: #fff;
+  background: linear-gradient(135deg, #8158ed, #6037c0);
+}
+
+.skill-card-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.skill-card-name {
+  color: #e9e2f4;
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.recommended-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  color: #bba5ff;
+  background: rgba(132,88,237,0.12);
+  border: 1px solid rgba(153,115,255,0.16);
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+
+.skill-arrow {
+  flex: 0 0 auto;
+  color: #5f566f;
+  transition: transform .18s ease, color .18s ease;
+}
+
+.skill-card:hover .skill-arrow {
+  color: #a68cf0;
+  transform: translateX(2px);
+}
+
+.skill-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(255,255,255,0.042);
+  color: #6e657b;
+  font-size: 0.61rem;
+}
+
+.skill-score-row strong {
+  color: #a995d0;
+  font-size: 0.67rem;
+}
+
+.priority-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid rgba(144,108,235,0.13);
+  background: rgba(103,68,184,0.055);
+}
+
+.priority-info > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: #9576e8;
+}
+
+.priority-info strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #c5b8dc;
+  font-size: 0.68rem;
+}
+
+.priority-info p {
+  margin: 0;
+  color: #746a80;
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   MAIN TRAINING AREA
+   ============================================================ */
+
+.training-main {
+  min-width: 0;
+  min-height: 565px;
+  display: flex;
+  align-items: stretch;
+}
+
+.training-main > * {
+  width: 100%;
+}
+
+.training-main .empty-state,
+.training-loading {
+  min-height: 565px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(115,72,217,0.10), transparent 42%),
+    rgba(16,9,29,0.63);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.045);
+}
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.training-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.loading-icon {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(158,120,255,0.34);
+  background: rgba(104,67,197,0.10);
+  color: #b096ff;
+  box-shadow: 0 0 35px rgba(111,70,218,0.20);
+}
+
+.training-loading h3 {
+  margin: 0;
+  color: #eee9f7;
+  font-size: 1rem;
+}
+
+.training-loading p {
+  margin: 8px 0 0;
+  color: #7e748d;
+  font-size: 0.72rem;
+}
+
+/* ============================================================
+   QUESTION CARD
+   ============================================================ */
+
+.question-card,
+.feedback-card {
+  position: relative;
+  min-height: 565px;
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(160,124,255,0.15);
+  background:
+    linear-gradient(145deg, rgba(29,18,51,0.84), rgba(13,7,24,0.92));
+  box-shadow:
+    0 25px 70px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.question-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #a47aff, transparent 85%);
+  opacity: .75;
+}
+
+.question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 1px 0 17px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.question-skill {
+  margin-bottom: 4px;
+  color: #a990f4;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.question-header h2 {
+  margin: 0;
+  color: #f2edf9;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.difficulty-badge {
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #c1adff;
+  border: 1px solid rgba(153,116,255,0.23);
+  background: rgba(119,78,218,0.10);
+  font-size: 0.62rem;
+  font-weight: 850;
+  text-transform: capitalize;
+}
+
+/* ============================================================
+   QUESTION BODY
+   ============================================================ */
+
+.question-body {
+  padding: 23px 5px 18px;
+}
+
+.question-number-label {
+  margin-bottom: 9px;
+  color: #70657d;
+  font-size: 0.61rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.question-text {
+  max-width: 930px;
+  margin: 0;
+  color: #eee9f5;
+  font-size: clamp(1rem, 1.65vw, 1.20rem);
+  font-weight: 560;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   MCQ OPTIONS
+   ============================================================ */
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.training-option {
+  position: relative;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  text-align: left;
+  color: #bdb5ca;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.023);
+  font-family: inherit;
+  font-size: 0.80rem;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease, color .16s ease;
+}
+
+.training-option:hover:not(:disabled) {
+  transform: translateX(3px);
+  color: #eee9f7;
+  border-color: rgba(151,112,255,0.25);
+  background: rgba(123,81,221,0.08);
+}
+
+.training-option.selected {
+  color: #f6f2ff;
+  border-color: rgba(153,115,255,0.46);
+  background: linear-gradient(135deg, rgba(121,77,227,0.17), rgba(92,57,166,0.08));
+  box-shadow: 0 7px 22px rgba(71,37,151,0.14);
+}
+
+.training-option:disabled {
+  cursor: not-allowed;
+}
+
+.option-letter {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #91859f;
+  background: rgba(255,255,255,0.055);
+  font-size: 0.68rem;
+  font-weight: 850;
+}
+
+.training-option.selected .option-letter {
+  color: #fff;
+  background: linear-gradient(135deg, #8158eb, #6139c4);
+}
+
+.training-option > svg {
+  margin-left: auto;
+  flex: 0 0 auto;
+  color: #a88df5;
+}
+
+/* ============================================================
+   VISUAL / PRATYAKṢA TRAINING
+   ============================================================ */
+
+.visual-training-area {
+  margin-top: 15px;
+}
+
+.training-visual-image {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 17px;
+  padding: 10px;
+  border-radius: 17px;
+  border: 1px solid rgba(172,141,255,0.14);
+  background:
+    radial-gradient(circle at center, rgba(122,77,227,0.08), transparent 60%),
+    rgba(0,0,0,0.16);
+}
+
+.training-visual-image::before {
+  content: "VISUAL REASONING";
+  position: absolute;
+  top: 8px;
+  left: 13px;
+  z-index: 1;
+  padding: 4px 7px;
+  border-radius: 6px;
+  color: rgba(215,201,255,0.72);
+  background: rgba(14,8,25,0.70);
+  border: 1px solid rgba(184,153,255,0.12);
+  font-size: 0.52rem;
+  font-weight: 850;
+  letter-spacing: .10em;
+}
+
+.training-visual-image img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 11px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.025);
+}
+
+.training-image-missing {
+  width: 100%;
+  min-height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 17px;
+  border: 1px dashed rgba(255,255,255,0.16);
+  border-radius: 15px;
+  color: rgba(255,255,255,0.42);
+  background: rgba(255,255,255,0.02);
+}
+
+.training-open-ended {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.training-open-ended label {
+  display: block;
+  margin-bottom: 7px;
+  color: #cfc3e4;
+  font-size: 0.70rem;
+  font-weight: 750;
+}
+
+.training-open-ended input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 11px;
+  outline: none;
+  background: rgba(255,255,255,0.038);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.80rem;
+  line-height: 1.5;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.training-open-ended input::placeholder {
+  color: rgba(255,255,255,0.38);
+}
+
+.training-open-ended input:focus {
+  border-color: rgba(151,112,255,0.70);
+  background: rgba(255,255,255,0.055);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.11), 0 0 25px rgba(113,73,204,0.08);
+}
+
+.training-open-ended input:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   QUESTION / FEEDBACK ACTIONS
+   ============================================================ */
+
+.question-actions,
+.feedback-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 21px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ============================================================
+   FEEDBACK
+   ============================================================ */
+
+.feedback-card {
+  overflow: hidden;
+}
+
+.feedback-result {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.055);
+  background: rgba(255,255,255,0.022);
+}
+
+.feedback-result.correct {
+  border-color: rgba(96,212,157,0.18);
+  background: rgba(44,151,103,0.065);
+}
+
+.feedback-result.incorrect {
+  border-color: rgba(244,106,137,0.17);
+  background: rgba(169,45,78,0.065);
+}
+
+.feedback-result-icon {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+}
+
+.feedback-result.correct .feedback-result-icon {
+  color: #75e1b0;
+  background: rgba(71,192,138,0.12);
+}
+
+.feedback-result.incorrect .feedback-result-icon {
+  color: #ff8da9;
+  background: rgba(233,78,112,0.11);
+}
+
+.feedback-result span {
+  display: block;
+  margin-bottom: 3px;
+  color: #887d96;
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.feedback-result h2 {
+  margin: 0;
+  color: #f3eef8;
+  font-size: 1.55rem;
+}
+
+.feedback-section {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 13px;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.020);
+}
+
+.feedback-section-title {
+  margin-bottom: 6px;
+  color: #a58ae0;
+  font-size: 0.63rem;
+  font-weight: 850;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.feedback-section p {
+  margin: 0;
+  color: #aaa1b7;
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.feedback-improvement {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 13px;
+  border: 1px solid rgba(139,104,231,0.15);
+  background: rgba(113,73,204,0.06);
+}
+
+.improvement-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  color: #a98df4;
+  background: rgba(130,91,228,0.12);
+}
+
+.feedback-improvement strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #c5b9d9;
+  font-size: 0.69rem;
+}
+
+.feedback-improvement p {
+  margin: 0;
+  color: #92889f;
+  font-size: 0.70rem;
+  line-height: 1.55;
+}
+
+.next-difficulty {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #81768f;
+  border: 1px solid rgba(143,107,234,0.11);
+  background: rgba(104,69,187,0.05);
+  font-size: 0.66rem;
+}
+
+.next-difficulty svg {
+  color: #a687f4;
+}
+
+.next-difficulty strong {
+  color: #bca6ef;
+}
+
+/* ============================================================
+   FOOTER NOTE
+   ============================================================ */
+
+.training-footer-note {
+  position: relative;
+  z-index: 1;
+  max-width: 1480px;
+  margin: 14px auto 0;
+  padding: 8px 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #655c72;
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.training-footer-note svg {
+  flex: 0 0 auto;
+  color: #8067b7;
+}
+
+/* ============================================================
+   ANIMATION
+   ============================================================ */
+
+.spin {
+  animation: training-spin .9s linear infinite;
+}
+
+@keyframes training-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.recommended-training-card,
+.training-sidebar,
+.question-card,
+.feedback-card,
+.training-loading {
+  animation: training-fade-up .42s ease both;
+}
+
+@keyframes training-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+.training-page ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.training-page ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.training-page ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(137,105,205,0.25);
+}
+
+.training-page ::-webkit-scrollbar-thumb:hover {
+  background: rgba(150,115,228,0.40);
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1050px) {
+  .training-page {
+    padding: 30px 24px;
+  }
+
+  .training-layout {
+    grid-template-columns: 275px minmax(0, 1fr);
+  }
+
+  .recommended-training-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .recommended-action {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 780px) {
+  .training-page {
+    padding: 24px 15px 22px;
+  }
+
+  .training-header {
+    align-items: flex-start;
+  }
+
+  .training-header-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+
+  .training-header-icon svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .training-header h1 {
+    font-size: 1.95rem;
+  }
+
+  .training-header p {
+    font-size: 0.80rem;
+  }
+
+  .recommended-training-card {
+    grid-template-columns: auto 1fr;
+    padding: 17px;
+  }
+
+  .recommended-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .recommended-content h2 {
+    font-size: 1.10rem;
+  }
+
+  .recommended-action {
+    grid-column: 1 / -1;
+  }
+
+  .recommended-action button {
+    width: 100%;
+  }
+
+  .training-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .training-sidebar {
+    order: 1;
+  }
+
+  .training-main {
+    order: 2;
+    min-height: 500px;
+  }
+
+  .training-main .empty-state,
+  .training-loading,
+  .question-card,
+  .feedback-card {
+    min-height: 500px;
+  }
+
+  .question-card,
+  .feedback-card {
+    padding: 19px;
+  }
+
+  .question-header {
+    align-items: flex-start;
+  }
+
+  .question-header h2 {
+    font-size: 1.05rem;
+  }
+
+  .question-text {
+    font-size: 0.95rem;
+  }
+
+  .question-actions,
+  .feedback-actions {
+    flex-direction: column-reverse;
+  }
+
+  .question-actions button,
+  .feedback-actions button {
+    width: 100%;
+  }
+
+  .training-footer-note {
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .training-page {
+    padding: 20px 10px;
+  }
+
+  .training-header-icon {
+    display: none;
+  }
+
+  .recommended-training-card {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .recommended-icon {
+    width: 41px;
+    height: 41px;
+    border-radius: 12px;
+  }
+
+  .recommended-score {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .training-sidebar {
+    padding: 13px;
+  }
+
+  .skill-card {
+    padding: 11px;
+  }
+
+  .question-card,
+  .feedback-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .question-header {
+    flex-direction: column;
+  }
+
+  .difficulty-badge {
+    align-self: flex-start;
+  }
+
+  .question-body {
+    padding: 20px 2px 15px;
+  }
+
+  .training-option {
+    padding: 11px;
+    font-size: 0.76rem;
+  }
+
+  .option-letter {
+    width: 27px;
+    height: 27px;
+  }
+
+  .feedback-result {
+    padding: 13px;
+  }
+
+  .feedback-result-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .feedback-result h2 {
+    font-size: 1.30rem;
+  }
+}
+
+/* ============================================================
+   QUESTION READABILITY FIX
+   High-contrast overrides for global/theme CSS conflicts
+   ============================================================ */
+
+.training-page .question-card {
+  color: #f8f5ff;
+  background:
+    linear-gradient(145deg, rgba(35, 22, 61, 0.96), rgba(16, 9, 29, 0.98));
+}
+
+.training-page .question-card .question-header,
+.training-page .question-card .question-body {
+  color: #f8f5ff;
+}
+
+.training-page .question-card .question-number-label {
+  color: #a99bb8 !important;
+  opacity: 1 !important;
+}
+
+/* Main question: force readable foreground and remove inherited opacity */
+.training-page .question-card .question-body .question-text {
+  display: block;
+  max-width: 980px;
+  margin: 0;
+  padding: 2px 0;
+  color: #faf8ff !important;
+  -webkit-text-fill-color: #faf8ff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem) !important;
+  font-weight: 600 !important;
+  line-height: 1.72 !important;
+  letter-spacing: 0.005em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.22);
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Keep long questions visually separated from the answer choices */
+.training-page .question-card .question-body {
+  padding: 24px 8px 20px !important;
+  background: rgba(255, 255, 255, 0.012);
+  border-radius: 12px;
+}
+
+/* MCQ choices: brighter text, larger type, stronger contrast */
+.training-page .question-card .options-list {
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.training-page .question-card .options-list .training-option {
+  min-height: 56px;
+  padding: 13px 15px;
+  color: #eee9f7 !important;
+  -webkit-text-fill-color: #eee9f7 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+  border-color: rgba(255, 255, 255, 0.105) !important;
+  font-size: 0.91rem !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+}
+
+.training-page .question-card .options-list .training-option > span:not(.option-letter) {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: #eee9f7 !important;
+  -webkit-text-fill-color: #eee9f7 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.training-page .question-card .options-list .training-option:hover:not(:disabled) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: rgba(126, 83, 224, 0.14) !important;
+  border-color: rgba(173, 143, 255, 0.42) !important;
+}
+
+.training-page .question-card .options-list .training-option:hover:not(:disabled) > span:not(.option-letter) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.training-page .question-card .options-list .training-option.selected {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(125, 82, 232, 0.27), rgba(86, 52, 163, 0.17)) !important;
+  border-color: rgba(183, 155, 255, 0.62) !important;
+  box-shadow:
+    0 8px 25px rgba(74, 39, 157, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.training-page .question-card .options-list .training-option.selected > span:not(.option-letter) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.training-page .question-card .options-list .option-letter {
+  color: #c5b7e5 !important;
+  -webkit-text-fill-color: #c5b7e5 !important;
+  background: rgba(255, 255, 255, 0.075) !important;
+}
+
+.training-page .question-card .options-list .training-option.selected .option-letter {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.training-page .question-card .difficulty-badge {
+  color: #d8caff !important;
+  -webkit-text-fill-color: #d8caff !important;
+  opacity: 1 !important;
+}
+
+/* Make action buttons readable without changing their behavior */
+.training-page .question-card .question-actions button {
+  opacity: 1;
+}
+
+.training-page .question-card .question-actions .primary-training-button:disabled {
+  opacity: 0.58 !important;
+}
+
+/* Visual questions */
+.training-page .question-card .training-open-ended input {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  font-size: 0.92rem;
+}
+
+.training-page .question-card .training-open-ended label {
+  color: #ddd3eb !important;
+  opacity: 1 !important;
+}
+
+/* Desktop: give the question more breathing room */
+@media (min-width: 1051px) {
+  .training-page .question-card .question-body .question-text {
+    max-width: 1040px;
+  }
+
+  .training-page .question-card .options-list {
+    max-width: 100%;
+  }
+}
+
+/* Tablet and mobile readability */
+@media (max-width: 780px) {
+  .training-page .question-card .question-body .question-text {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .training-page .question-card .options-list .training-option {
+    min-height: 54px;
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .training-page .question-card .question-body .question-text {
+    font-size: 0.98rem !important;
+    line-height: 1.62 !important;
+  }
+
+  .training-page .question-card .options-list .training-option {
+    padding: 12px 13px;
+    font-size: 0.86rem !important;
+  }
+}
+
+

@@ -1,0 +1,2002 @@
+/* =========================================================
+   COGNITA AI
+   LANDING PAGE
+   Purple Cognitive Interface
+   ========================================================= */
+
+.landing-page {
+  --landing-purple: #6d4aff;
+  --landing-purple-dark: #4325a8;
+  --landing-purple-deep: #24134f;
+  --landing-purple-soft: #9b7cff;
+
+  --landing-text: #f8f6ff;
+  --landing-muted: rgba(238, 233, 255, 0.72);
+  --landing-border: rgba(255, 255, 255, 0.12);
+
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  color: var(--landing-text);
+
+  background:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(132, 92, 255, 0.26),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 86% 18%,
+      rgba(103, 67, 255, 0.20),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 75%,
+      rgba(74, 39, 167, 0.20),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #130b2e 0%,
+      #211047 38%,
+      #29145a 65%,
+      #160b32 100%
+    );
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.landing-hero {
+  position: relative;
+  min-height: 760px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+
+.landing-hero-inner {
+  width: min(1180px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(420px, 0.9fr);
+
+  gap: 35px;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND GRID
+   ========================================================= */
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.25;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 90%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND GLOWS
+   ========================================================= */
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(10px);
+
+  pointer-events: none;
+}
+
+
+.hero-glow-one {
+  width: 520px;
+  height: 520px;
+
+  top: -250px;
+  left: -180px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(118, 80, 255, 0.28),
+      transparent 68%
+    );
+}
+
+
+.hero-glow-two {
+  width: 650px;
+  height: 650px;
+
+  right: -280px;
+  top: 100px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(105, 66, 255, 0.24),
+      transparent 68%
+    );
+}
+
+
+/* =========================================================
+   HERO PARTICLES
+   ========================================================= */
+
+.hero-particle {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #c7b7ff;
+
+  box-shadow:
+    0 0 14px rgba(178, 150, 255, 0.9);
+
+  animation:
+    particle-float 5s ease-in-out infinite;
+
+  opacity: 0.75;
+}
+
+
+.particle-one {
+  left: 12%;
+  top: 29%;
+}
+
+
+.particle-two {
+  left: 45%;
+  top: 17%;
+
+  animation-delay: 1s;
+}
+
+
+.particle-three {
+  right: 13%;
+  top: 31%;
+
+  animation-delay: 2s;
+}
+
+
+.particle-four {
+  left: 50%;
+  bottom: 19%;
+
+  animation-delay: 0.5s;
+}
+
+
+.particle-five {
+  right: 34%;
+  bottom: 28%;
+
+  animation-delay: 1.5s;
+}
+
+
+@keyframes particle-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-13px);
+  }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.landing-hero-content {
+  max-width: 650px;
+}
+
+
+.landing-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 22px;
+
+  padding: 8px 13px;
+
+  border:
+    1px solid rgba(183, 160, 255, 0.22);
+
+  border-radius: 999px;
+
+  background:
+    rgba(126, 89, 255, 0.10);
+
+  color:
+    rgba(224, 214, 255, 0.86);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.eyebrow-icon {
+  width: 23px;
+  height: 23px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(129, 91, 255, 0.32);
+
+  color: #d8ccff;
+}
+
+
+.landing-title {
+  margin: 0;
+
+  font-size:
+    clamp(48px, 6vw, 78px);
+
+  line-height: 0.99;
+
+  letter-spacing: -3.5px;
+
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+
+.landing-title span {
+  display: inline-block;
+
+  color: #a88cff;
+
+  text-shadow:
+    0 0 30px rgba(135, 100, 255, 0.25);
+}
+
+
+.landing-description {
+  max-width: 610px;
+
+  margin: 26px 0 0;
+
+  color:
+    rgba(231, 224, 255, 0.70);
+
+  font-size: 16px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+   ========================================================= */
+
+.landing-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 31px;
+}
+
+
+.landing-primary-button {
+  min-height: 49px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 20px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.10);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7654ff,
+      #6040db
+    );
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 14px 35px
+    rgba(83, 48, 202, 0.30);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.landing-primary-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 40px
+    rgba(105, 72, 242, 0.40);
+}
+
+
+.landing-secondary-button {
+  min-height: 49px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 22px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.17);
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  color:
+    rgba(245, 241, 255, 0.88);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.landing-secondary-button:hover {
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  border-color:
+    rgba(255, 255, 255, 0.27);
+}
+
+
+/* =========================================================
+   HERO METRICS
+   ========================================================= */
+
+.hero-metrics {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-top: 40px;
+}
+
+
+.hero-metric {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.hero-metric strong {
+  color: #ffffff;
+
+  font-size: 16px;
+
+  letter-spacing: 0.5px;
+}
+
+
+.hero-metric span {
+  color:
+    rgba(218, 210, 244, 0.50);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.6px;
+}
+
+
+.hero-metric-divider {
+  width: 1px;
+  height: 28px;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   BRAIN STAGE
+   ========================================================= */
+
+.landing-brain-stage {
+  min-height: 590px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   BRAIN IMAGE GLOW
+   ========================================================= */
+
+.brain-image-glow {
+  position: absolute;
+
+  width: 470px;
+  height: 470px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(122, 82, 255, 0.34),
+      rgba(122, 82, 255, 0.10) 38%,
+      transparent 70%
+    );
+
+  filter: blur(15px);
+
+  animation:
+    brain-glow 4s ease-in-out infinite;
+}
+
+
+@keyframes brain-glow {
+
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   BRAIN CARD
+   ========================================================= */
+
+.brain-image-card {
+  width: 420px;
+  height: 420px;
+
+  position: relative;
+
+  z-index: 4;
+
+  display: grid;
+
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(207, 193, 255, 0.18);
+
+  background:
+    rgba(20, 10, 50, 0.48);
+
+  box-shadow:
+    0 35px 90px
+      rgba(9, 4, 25, 0.50),
+    inset 0 0 50px
+      rgba(126, 87, 255, 0.12);
+
+  backdrop-filter: blur(8px);
+
+  animation:
+    brain-float 6s ease-in-out infinite;
+}
+
+
+.brain-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /*
+     Keeps the uploaded brain image subtle.
+     The image is deliberately darkened so
+     it does not overpower the text.
+  */
+
+  opacity: 0.43;
+
+  filter:
+    brightness(0.48)
+    saturate(0.80)
+    contrast(1.08);
+
+  mix-blend-mode: screen;
+
+  transform: scale(1.08);
+
+  animation:
+    brain-image-pulse 7s ease-in-out infinite;
+}
+
+
+@keyframes brain-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+
+@keyframes brain-image-pulse {
+
+  0%,
+  100% {
+    transform: scale(1.06);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+
+/* =========================================================
+   ORBITS
+   ========================================================= */
+
+.brain-orbit {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(171, 147, 255, 0.15);
+
+  pointer-events: none;
+}
+
+
+.orbit-one {
+  width: 500px;
+  height: 230px;
+
+  transform: rotate(26deg);
+
+  animation:
+    orbit-rotate 13s linear infinite;
+}
+
+
+.orbit-two {
+  width: 470px;
+  height: 250px;
+
+  transform: rotate(-37deg);
+
+  animation:
+    orbit-rotate-reverse 17s linear infinite;
+}
+
+
+.orbit-three {
+  width: 360px;
+  height: 360px;
+
+  border-color:
+    rgba(171, 147, 255, 0.09);
+
+  animation:
+    orbit-spin 22s linear infinite;
+}
+
+
+@keyframes orbit-rotate {
+
+  from {
+    transform:
+      rotate(26deg);
+  }
+
+  to {
+    transform:
+      rotate(386deg);
+  }
+}
+
+
+@keyframes orbit-rotate-reverse {
+
+  from {
+    transform:
+      rotate(-37deg);
+  }
+
+  to {
+    transform:
+      rotate(-397deg);
+  }
+}
+
+
+@keyframes orbit-spin {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   BRAIN RINGS
+   ========================================================= */
+
+.brain-ring {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed
+    rgba(177, 151, 255, 0.16);
+
+  pointer-events: none;
+}
+
+
+.ring-one {
+  width: 530px;
+  height: 530px;
+
+  animation:
+    ring-pulse 5s ease-in-out infinite;
+}
+
+
+.ring-two {
+  width: 440px;
+  height: 440px;
+
+  animation:
+    ring-pulse 5s ease-in-out infinite 1.5s;
+}
+
+
+@keyframes ring-pulse {
+
+  0%,
+  100% {
+    opacity: 0.30;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+}
+
+
+/* =========================================================
+   BRAIN CENTER BADGE
+   ========================================================= */
+
+.brain-center-badge {
+  position: absolute;
+
+  z-index: 8;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(36, 20, 82, 0.85);
+
+  border:
+    1px solid
+    rgba(196, 178, 255, 0.20);
+
+  box-shadow:
+    0 10px 30px
+    rgba(8, 4, 22, 0.30);
+
+  color:
+    #dcd3ff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  transform:
+    translateY(168px);
+}
+
+
+/* =========================================================
+   BRAIN LABELS
+   ========================================================= */
+
+.brain-label {
+  position: absolute;
+
+  z-index: 9;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px 12px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(28, 15, 61, 0.80);
+
+  border:
+    1px solid
+    rgba(203, 187, 255, 0.15);
+
+  box-shadow:
+    0 12px 30px
+    rgba(9, 4, 25, 0.25);
+
+  backdrop-filter: blur(12px);
+
+  animation:
+    label-float 5s ease-in-out infinite;
+}
+
+
+.brain-label svg {
+  color: #ad94ff;
+}
+
+
+.brain-label div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.brain-label strong {
+  color: #ffffff;
+
+  font-size: 10px;
+}
+
+
+.brain-label span {
+  color:
+    rgba(215, 205, 242, 0.55);
+
+  font-size: 8px;
+}
+
+
+.label-reasoning {
+  left: 0;
+  top: 175px;
+}
+
+
+.label-learning {
+  right: 0;
+  top: 120px;
+
+  animation-delay: 1.2s;
+}
+
+
+.label-growth {
+  right: 18px;
+  bottom: 135px;
+
+  animation-delay: 2.2s;
+}
+
+
+@keyframes label-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.hero-scroll-indicator {
+  position: absolute;
+
+  z-index: 7;
+
+  left: 50%;
+  bottom: 28px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 3px;
+
+  color:
+    rgba(221, 212, 245, 0.42);
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.3px;
+}
+
+
+.hero-scroll-indicator svg {
+  animation:
+    scroll-bounce 1.8s ease-in-out infinite;
+}
+
+
+@keyframes scroll-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.landing-section {
+  width: min(1180px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  padding: 110px 0;
+}
+
+
+.landing-section-heading {
+  max-width: 650px;
+
+  margin-bottom: 50px;
+}
+
+
+.section-kicker {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color:
+    #a58bff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+
+.landing-section-heading h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(32px, 4vw, 48px);
+
+  line-height: 1.1;
+
+  letter-spacing: -1.8px;
+}
+
+
+.landing-section-heading h2 span {
+  color: #a68bff;
+}
+
+
+.landing-section-heading p {
+  max-width: 600px;
+
+  margin: 17px 0 0;
+
+  color:
+    rgba(225, 216, 245, 0.62);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   DIMENSIONS
+   ========================================================= */
+
+.dimensions-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+
+.cognitive-card {
+  min-height: 245px;
+
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 23px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(196, 179, 255, 0.12);
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  backdrop-filter: blur(15px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.cognitive-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(164, 136, 255, 0.35);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(133, 98, 255, 0.14),
+      rgba(255, 255, 255, 0.035)
+    );
+}
+
+
+.cognitive-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+.cognitive-index {
+  color:
+    rgba(194, 178, 236, 0.35);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.cognitive-icon {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  color: #b59cff;
+
+  background:
+    rgba(115, 77, 255, 0.13);
+
+  border:
+    1px solid
+    rgba(164, 137, 255, 0.15);
+}
+
+
+.cognitive-card-content {
+  margin-top: 30px;
+}
+
+
+.cognitive-card h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 23px;
+
+  letter-spacing: -0.5px;
+}
+
+
+.cognitive-english {
+  margin: 5px 0 0;
+
+  color: #a992e8;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.cognitive-description {
+  margin: 13px 0 0;
+
+  color:
+    rgba(219, 210, 239, 0.56);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+.cognitive-card-line {
+  width: 45px;
+  height: 2px;
+
+  margin-top: auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7955ff,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-section {
+  position: relative;
+}
+
+
+.process-wrapper {
+  position: relative;
+}
+
+
+.process-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 14px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.process-line {
+  position: absolute;
+
+  left: 9%;
+  right: 9%;
+
+  top: 38px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(143, 111, 255, 0.35),
+      transparent
+    );
+
+  z-index: 1;
+}
+
+
+.process-card {
+  min-height: 250px;
+
+  padding: 22px;
+
+  position: relative;
+
+  border:
+    1px solid
+    rgba(196, 179, 255, 0.10);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.process-card:hover {
+  transform: translateY(-5px);
+
+  border-color:
+    rgba(165, 137, 255, 0.30);
+}
+
+
+.process-number {
+  position: absolute;
+
+  top: 17px;
+  right: 18px;
+
+  color:
+    rgba(190, 171, 231, 0.28);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.process-icon {
+  width: 45px;
+  height: 45px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 45px;
+
+  border-radius: 13px;
+
+  background:
+    rgba(111, 73, 255, 0.15);
+
+  border:
+    1px solid
+    rgba(164, 137, 255, 0.17);
+
+  color: #ad94ff;
+}
+
+
+.process-card h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+}
+
+
+.process-card p {
+  margin: 10px 0 0;
+
+  color:
+    rgba(219, 209, 239, 0.53);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.landing-cta {
+  width: min(1100px, calc(100% - 48px));
+
+  margin: 20px auto 100px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  border:
+    1px solid
+    rgba(190, 170, 255, 0.16);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(110, 73, 255, 0.19),
+      rgba(255, 255, 255, 0.045)
+    );
+
+  box-shadow:
+    0 30px 80px
+    rgba(7, 3, 20, 0.25);
+}
+
+
+.cta-glow {
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(119, 79, 255, 0.24),
+      transparent 70%
+    );
+
+  filter: blur(10px);
+}
+
+
+.cta-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  padding: 80px 30px;
+
+  text-align: center;
+}
+
+
+.cta-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 25px;
+
+  border-radius: 18px;
+
+  color: #c3b3ff;
+
+  background:
+    rgba(121, 82, 255, 0.18);
+
+  border:
+    1px solid
+    rgba(190, 169, 255, 0.20);
+}
+
+
+.cta-content .section-kicker {
+  margin-bottom: 13px;
+}
+
+
+.cta-content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(31px, 4vw, 47px);
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+}
+
+
+.cta-content h2 span {
+  color: #a88cff;
+}
+
+
+.cta-content p {
+  max-width: 580px;
+
+  margin: 18px auto 0;
+
+  color:
+    rgba(224, 215, 244, 0.62);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+.cta-button {
+  margin-top: 28px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .landing-hero-inner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      420px;
+  }
+
+  .landing-title {
+    font-size: 56px;
+  }
+
+  .brain-image-card {
+    width: 360px;
+    height: 360px;
+  }
+
+  .brain-image-glow {
+    width: 400px;
+    height: 400px;
+  }
+
+  .orbit-one {
+    width: 430px;
+  }
+
+  .orbit-two {
+    width: 400px;
+  }
+
+  .ring-one {
+    width: 450px;
+    height: 450px;
+  }
+
+  .ring-two {
+    width: 380px;
+    height: 380px;
+  }
+
+  .brain-label {
+    transform: scale(0.9);
+  }
+
+  .process-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .process-line {
+    display: none;
+  }
+}
+
+
+@media (max-width: 850px) {
+
+  .landing-hero {
+    min-height: auto;
+
+    padding:
+      100px 0 80px;
+  }
+
+  .landing-hero-inner {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+  }
+
+  .landing-hero-content {
+    max-width: 700px;
+
+    margin: 0 auto;
+  }
+
+  .landing-eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .landing-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .landing-actions {
+    justify-content: center;
+  }
+
+  .hero-metrics {
+    justify-content: center;
+  }
+
+  .landing-brain-stage {
+    min-height: 520px;
+  }
+
+  .dimensions-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .landing-hero-inner,
+  .landing-section {
+    width:
+      calc(100% - 30px);
+  }
+
+  .landing-title {
+    font-size: 44px;
+
+    letter-spacing: -2px;
+  }
+
+  .landing-description {
+    font-size: 14px;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .landing-primary-button,
+  .landing-secondary-button {
+    width: 100%;
+  }
+
+  .hero-metrics {
+    gap: 12px;
+  }
+
+  .hero-metric span {
+    font-size: 8px;
+  }
+
+  .landing-brain-stage {
+    min-height: 430px;
+  }
+
+  .brain-image-card {
+    width: 290px;
+    height: 290px;
+  }
+
+  .brain-image-glow {
+    width: 330px;
+    height: 330px;
+  }
+
+  .orbit-one {
+    width: 350px;
+    height: 170px;
+  }
+
+  .orbit-two {
+    width: 330px;
+    height: 190px;
+  }
+
+  .orbit-three {
+    width: 290px;
+    height: 290px;
+  }
+
+  .ring-one {
+    width: 350px;
+    height: 350px;
+  }
+
+  .ring-two {
+    width: 310px;
+    height: 310px;
+  }
+
+  .brain-label {
+    padding: 7px 9px;
+
+    transform: scale(0.78);
+  }
+
+  .label-reasoning {
+    left: -2px;
+  }
+
+  .label-learning {
+    right: -2px;
+  }
+
+  .label-growth {
+    right: 0;
+    bottom: 80px;
+  }
+
+  .brain-center-badge {
+    transform:
+      translateY(125px);
+  }
+
+  .landing-section {
+    padding: 80px 0;
+  }
+
+  .dimensions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-cta {
+    width:
+      calc(100% - 30px);
+
+    margin-bottom: 60px;
+  }
+
+  .cta-content {
+    padding:
+      60px 20px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .brain-image-card,
+  .brain-image,
+  .brain-image-glow,
+  .brain-orbit,
+  .brain-ring,
+  .brain-label,
+  .hero-particle,
+  .hero-scroll-indicator svg {
+    animation: none;
+  }
+
+  .landing-primary-button,
+  .landing-secondary-button,
+  .cognitive-card,
+  .process-card {
+    transition: none;
+  }
+}
+/* =========================================================
+   COGNITA AI — HERO BRAIN VISIBILITY
+   Make the brain more visible without overpowering the text
+   ========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keep the brain behind the content */
+.hero-brain-visual {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(520px, 44vw);
+  height: min(520px, 44vw);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
+}
+
+/* Brain image */
+.hero-brain-visual img,
+.hero-brain-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  /* Increased visibility */
+  opacity: 0.52;
+
+  /* Slightly brighter and clearer */
+  filter:
+    brightness(1.18)
+    contrast(1.08)
+    saturate(1.15);
+
+  mix-blend-mode: screen;
+
+  animation: cognitaBrainFloat 6s ease-in-out infinite;
+}
+
+/* Soft glow behind the brain */
+.hero-brain-visual::before {
+  content: '';
+
+  position: absolute;
+  inset: 12%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.20) 0%,
+      rgba(99, 65, 180, 0.10) 38%,
+      transparent 72%
+    );
+
+  filter: blur(28px);
+
+  z-index: -1;
+}
+
+/* Subtle brain floating animation */
+@keyframes cognitaBrainFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.015);
+  }
+}
+
+
+/* =========================================================
+   BRAIN ORBIT
+   ========================================================= */
+
+.hero-brain-orbit {
+  position: absolute;
+  inset: 4%;
+
+  border: 1px solid rgba(180, 150, 255, 0.20);
+
+  border-radius: 50%;
+
+  animation:
+    cognitaOrbitRotate 18s linear infinite;
+}
+
+.hero-brain-orbit::before {
+  content: '';
+
+  position: absolute;
+  inset: 9%;
+
+  border: 1px dashed rgba(180, 150, 255, 0.13);
+
+  border-radius: 50%;
+}
+
+.hero-brain-orbit::after {
+  content: '';
+
+  position: absolute;
+  inset: 18%;
+
+  border: 1px solid rgba(180, 150, 255, 0.10);
+
+  border-radius: 50%;
+}
+
+@keyframes cognitaOrbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   BRAIN VISUAL OVERLAY
+   ========================================================= */
+
+.hero-brain-visual::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 30%,
+      rgba(35, 17, 78, 0.08) 62%,
+      rgba(35, 17, 78, 0.22) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT — ALWAYS ABOVE BRAIN
+   ========================================================= */
+
+.hero-content,
+.hero > .hero-badge,
+.hero > .hero-title,
+.hero > .hero-tagline,
+.hero > .hero-description,
+.hero > .hero-actions,
+.hero > .hero-stats {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* =========================================================
+   FLOATING LABELS
+   ========================================================= */
+
+.hero-brain-label {
+  position: absolute;
+
+  z-index: 4;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  background: rgba(35, 20, 75, 0.72);
+
+  border: 1px solid rgba(180, 150, 255, 0.20);
+
+  box-shadow:
+    0 12px 30px rgba(15, 5, 40, 0.22);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color: #f4f0ff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .hero-brain-visual {
+    right: -3%;
+    width: 430px;
+    height: 430px;
+
+    opacity: 0.42;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .hero-brain-visual {
+    position: absolute;
+
+    right: 50%;
+    top: 48%;
+
+    transform: translate(50%, -50%);
+
+    width: 360px;
+    height: 360px;
+
+    opacity: 0.20;
+
+    pointer-events: none;
+  }
+
+  .hero-brain-label {
+    display: none;
+  }
+}
+
+
+@media (max-width: 520px) {
+  .hero-brain-visual {
+    width: 300px;
+    height: 300px;
+
+    opacity: 0.15;
+  }
+}
